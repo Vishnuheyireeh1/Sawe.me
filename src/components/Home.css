@@ -1,0 +1,70 @@
+@keyframes smooth-bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Moves up 10px */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-smooth-bounce {
+    animation: smooth-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes smallMoveX {
+    80% {
+      transform: translateX(5px);
+    }
+    80% {
+      transform: translateX(-5px);
+    }
+  }
+  
+  .small-right-to-left {
+    animation: smallMoveX 2s ease-in-out infinite ;
+  }
+  
+  .second-heading {
+    margin-left: 70px;
+    margin-top: 20px;
+  }
+  
+
+  .main-text {
+    font-size: 55px; 
+    font-weight: bold;
+  }
+  
+
+  .sub-text {
+    display: block;
+    font-size: 65px; 
+    text-decoration: underline;
+    margin-top: -24px;
+  }
+  
+.ourserviceimgs{
+  background-size: cover;
+  background-position: center;
+  /* background-image: url("https://img.freepik.com/free-photo/3d-rendering-cartoon-shopping-cart_23-2151680600.jpg"); */
+}
+
+.blackbox::before{
+   position: absolute;
+    top: -20px;
+    right: 0;
+    width: 25px;
+    border-bottom: 20px solid rgb(83, 9, 173);
+    border-left: 0 solid transparent;
+    border-right: 25px solid transparent;
+    content: "";
+}
+
+.group :hover .blackbox::before{
+  border-bottom: 20px solid rgb(249, 115, 22);
+  border-left: 0 solid transparent;
+  border-right: 25px solid transparent;
+}
