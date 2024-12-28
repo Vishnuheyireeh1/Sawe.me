@@ -69,3 +69,277 @@
   border-left: 0 solid transparent;
   border-right: 25px solid transparent;
 } */
+
+/* Base styles - Large screens (no change) */
+.first-div {
+  position: relative;
+  width: 100%;
+  height: 700px; /* Default height for large screens */
+}
+
+.second-div {
+  position: relative;
+  width: 100%;
+  height: 700px; /* Default height for large screens */
+  overflow: hidden;
+}
+
+.landing1 {
+  position: absolute;
+  top: 83px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 0rem); /* Cover full screen height minus the top space */
+  object-fit: cover; /* Ensure video covers area without distortion */
+}
+
+
+
+
+
+
+.third-div {
+  position: absolute;
+  right: 1rem;
+  margin-top: -90px;
+}
+
+.images1 {
+  width: 217px;
+  height: 131px;
+  animation: smooth-bounce 1s ease infinite;
+}
+
+@keyframes smooth-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive Styles */
+
+/* For tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .first-div,
+  .second-div {
+    height: 60vh; /* Adjust height for tablets */
+  }
+
+  .landing1 {
+    top: 5rem; /* Adjust top position for tablets */
+    height: calc(100vh - 6rem); /* Adjust height for tablets */
+  }
+
+  .third-div {
+    right: 2rem; /* Adjust distance from the right */
+    margin-top: -60px; /* Adjust margin for tablets */
+  }
+
+  .images1 {
+    width: 160px; /* Adjust width for tablets */
+    height: 90px; /* Adjust height for tablets */
+  }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .first-div,
+  .second-div {
+    height: 50vh; /* Further reduce height for mobile */
+  }
+
+  .landing1 {
+    top: 4rem; /* Adjust top position */
+    height: calc(100vh - 7rem); /* Adjust height for mobile */
+  }
+
+  .third-div {
+    right: 1rem; /* Adjust right position for mobile */
+    margin-top: -40px; /* Adjust margin for mobile */
+  }
+
+  .images1 {
+    width: 120px; /* Adjust width for mobile */
+    height: 80px; /* Adjust height for mobile */
+  }
+}
+
+/* For very small devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .first-div,
+  .second-div {
+    height: 45vh; /* Further reduce height for very small screens */
+  }
+
+  .landing1 {
+    top: 3rem; /* Adjust top position */
+    height: calc(100vh - 8rem); /* Adjust height for very small screens */
+  }
+
+  .third-div {
+    right: 0.5rem; /* Adjust right position for very small screens */
+    margin-top: -30px; /* Adjust margin for very small screens */
+  }
+
+  .images1 {
+    width: 100px; /* Adjust width for very small screens */
+    height: 60px; /* Adjust height for very small screens */
+  }
+}
+
+/* Global Styles */
+.services-container {
+  @apply w-full h-full pt-6 bg-white;
+}
+
+.services-content {
+  @apply p-6;
+}
+
+.services-flex {
+  @apply flex gap-6 flex-wrap;
+}
+
+.services-left {
+  @apply w-full sm:w-2/5 bg-white border border-gray-300 rounded-lg p-6 shadow-md mb-6;
+}
+
+.services-heading .services-title {
+  @apply text-xl font-semibold text-gray-800;
+}
+
+.services-main-title .services-title-main {
+  @apply text-3xl font-bold mt-4;
+}
+
+.highlight-text {
+  @apply text-red-600 underline;
+}
+
+.services-right {
+  @apply w-full sm:w-3/5 relative overflow-hidden rounded-lg;
+}
+
+.services-image {
+  @apply absolute inset-0 bg-center bg-no-repeat h-full w-full transition-transform duration-500;
+}
+
+.services-right:hover .services-image {
+  @apply scale-110 brightness-75;
+}
+
+.services-overlay {
+  @apply absolute top-52 left-8 right-8 bottom-8 bg-white p-3 border-l-4 border-red-600 rounded-xl opacity-0 transition-opacity duration-500;
+}
+
+.services-right:hover .services-overlay {
+  @apply opacity-100;
+}
+
+.services-arrow {
+  @apply absolute bottom-6 right-6 bg-red-600 text-white w-10 h-10 rounded-full flex justify-center items-center text-2xl cursor-pointer;
+}
+
+.services-cards-container {
+  @apply mt-4;
+}
+
+.services-cards {
+  @apply flex flex-wrap gap-6;
+}
+
+.service-card {
+  @apply w-full sm:w-1/2 bg-white border border-gray-300 rounded-lg shadow-md mb-6;
+}
+
+.card-top {
+  @apply flex;
+}
+
+.card-left {
+  @apply flex-1 bg-gray-200 flex justify-center items-center p-4;
+}
+
+.card-title {
+  @apply text-xl font-semibold;
+}
+
+.card-right {
+  @apply flex-1;
+}
+
+.card-image {
+  @apply w-full h-48 object-cover;
+}
+
+.card-bottom {
+  @apply p-4 flex justify-between items-center;
+}
+
+.card-description {
+  @apply text-sm text-gray-600 flex-1;
+}
+
+.service-btn {
+  @apply bg-red-600 text-white font-medium rounded-md py-2 px-4 border-none cursor-pointer transition-colors duration-300;
+}
+
+.service-btn:hover {
+  @apply bg-red-700;
+}
+
+.scroll-top-btn {
+  @apply fixed bottom-6 right-6 bg-purple-700 text-white w-12 h-12 rounded-full flex justify-center items-center text-2xl cursor-pointer;
+}
+
+.scroll-top-btn:hover {
+  @apply bg-purple-800;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .services-left, .services-right, .service-card {
+    @apply w-full mb-4;
+  }
+
+  .services-flex {
+    @apply flex-col;
+  }
+
+  .services-arrow {
+    @apply bottom-4 right-4;
+  }
+
+  .service-btn {
+    @apply w-full;
+  }
+
+  .services-overlay {
+    @apply top-12 left-0 right-0 w-full;
+  }
+}
+
+/* For small screen sizes */
+@media (max-width: 640px) {
+  .service-spare {
+    margin-top: 1100px;  /* Adjust this value as needed */
+  }
+  .spare-consultancy {
+    margin-bottom: 900px;  /* Adjust this value as needed */
+  }
+  .consultancy-footer {
+    margin-top: 1500px;
+  }
+  .content-3{
+    margin-top: 250px;
+    margin-left: -20px;
+  }
+  .div-6{
+    margin-left: -50px;
+  }
+}
+
+

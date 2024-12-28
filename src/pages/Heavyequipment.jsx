@@ -37,49 +37,49 @@ const toggleSection = (index) => {
     <div>
       {/* first part */}
       <div className="w-full mt-20 h-[600px]">
-            <div className="relative">
-       {/* Content Container */}
-       <div className="absolute inset-0 z-10 flex flex-col place-items-start justify-center mx-28">
-         <div className="border-l-4 border-customRed h-40 ">
-         <h1 className="text-white text-6xl font-bold mt-8 mx-6">
-           Heavy Equipment<span className="text-customRed"> Parts</span>
-         </h1>
-         <div className="flex items-center space-x-2 mt-4 mx-6">
-           <h2
-             onClick={handleHome}
-             className="text-customRed text-xl font-bold cursor-pointer"
-           >
-             Home
-           </h2>
-           <h2
-             onClick={handleHome}
-             className="text-white text-xl cursor-pointer"
-           >
-             &#8594;
-           </h2>
-           <h2 className="text-white text-xl font-bold cursor-pointer">
-             Heavy Equipment Parts
-           </h2>
-         </div>
-         </div>
-       </div>
-     
-       {/* Image with Gradient */}
-       <div className="relative">
-         <img className="w-[2400px] h-[600px] object-cover" src={home2} alt="" />
-         <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent"></div>
-       </div>
-     </div>
-     
-           </div>
-     
+        <div className="relative">
+          {/* Content Container */}
+          <div className="absolute inset-0 z-10 flex flex-col place-items-start justify-center px-6 md:px-28 h-auto md:h-full hidden sm:flex">
+            <div className="border-l-4 border-customRed h-auto md:h-40">
+              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mt-4 sm:mt-6 md:mt-8 mx-6">
+                Heavy Equipment <span className="text-customRed">Parts</span>
+              </h1>
+              <div className="flex items-center space-x-2 mt-2 sm:mt-4 md:mt-4 mx-6">
+                <h2
+                  onClick={handleHome}
+                  className="text-customRed text-lg sm:text-xl md:text-xl font-bold cursor-pointer"
+                >
+                  Home
+                </h2>
+                <h2
+                  onClick={handleHome}
+                  className="text-white text-lg sm:text-xl md:text-xl cursor-pointer"
+                >
+                  &#8594;
+                </h2>
+                <h2 className="text-white text-lg sm:text-xl md:text-xl font-bold cursor-pointer">
+                  Heavy Equipment Parts
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          {/* Image with Gradient */}
+          <div className="relative">
+            <img className="img-commers" src={home2} alt="" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent"></div>
+          </div>
+        </div>
+      </div>
+
+      <div className="gap-heavy"></div>
 
       {/* second part */}
       <div className="w-full h-full bg-white">
         <h1 className="text-black font-bold underline text-3xl mt-14 ml-10">
           Heavy Equipment Parts
         </h1>
-        <p className=" text-lg mt-5 ml-10 mr-10">
+        <p className="text-lg mt-5 ml-10 mr-10">
           At SAWE Solutions LLC FZ, we offer a wide range of high-quality Heavy
           Equipment Parts to support the smooth operation of your machinery. Our
           product line includes Forklift Parts, Equipment Spare Parts, and
@@ -89,7 +89,7 @@ const toggleSection = (index) => {
           equipment. That’s why we provide only the best products, ensuring that
           each part adheres to industry standards for safety and functionality.
           Whether you need replacement parts for forklifts, heavy equipment, or
-          automotive systems, our extensive inventory has you covered.{""}{" "}
+          automotive systems, our extensive inventory has you covered.
           <br />
           <br />
           Our focus is on providing durable, cost-effective solutions that
@@ -99,9 +99,10 @@ const toggleSection = (index) => {
           part requirements. Explore our full range of parts and let us help you
           keep your equipment running at its best.
         </p>
-        <div className="w-full h-[1200px] mt-10">
-          <div className="flex gap-6 justify-center mr-10 ml-10">
-            {/* Image with Content Section */}
+
+        {/* Image with Content Section */}
+        <div className="w-full mt-10 ">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mr-10 ml-10">
             {[
               {
                 imgSrc: forklift,
@@ -143,26 +144,32 @@ const toggleSection = (index) => {
                 ],
               },
             ].map((item, index) => (
-              <div key={index} className="w-[400px] relative group">
+              <div
+                key={index}
+                className="gap-heavy3 w-full sm:w-[400px] group mb-6 sm:mb-0 h-[1100px] relative"
+              >
+                
                 {/* Image */}
-                <div className="w-[400px] h-[300px] overflow-hidden mb-4">
+                <div className="w-full h-[300px] sm:w-[400px] sm:h-[300px] overflow-hidden mb-4">
                   <img
                     src={item.imgSrc}
                     alt={item.title}
                     className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
                   />
                 </div>
+
+                <div className='gap-heavy2'></div>
+
                 {/* Content */}
-                <div className="bg-slate-50 p-4 mt-[-40px] absolute w-[380px]">
-                  <div className="bg-customRed w-20 h-20 mt-[-40px] ml-[260px]">
+                <div className="bg-slate-50 p-4 mt-[-40px]  sm:w-[380px] sm:ml-0 mx-auto absolute">
+                  <div className="bg-customRed w-20 h-20 mt-[-40px] ml-[250px] sm:ml-[150px] md:ml-[200px] hidden sm:block">
                     <img
                       src={item.img}
                       alt=""
                       className="p-4 transform transition-transform duration-300 group-hover:scale-x-[-1]"
-                      // Added group-hover to flip the image on hover
                     />
                   </div>
-                  <h2 className="text-black font-bold text-xl underline">
+                  <h2 className="text-black font-bold text-xl underline text-center sm:text-left">
                     {item.title}
                   </h2>
                   <p className="text-lg mt-2">{item.description}</p>
@@ -182,7 +189,7 @@ const toggleSection = (index) => {
       {/* third part */}
       <div className="w-full h-auto">
         <div className="ml-72 mb-40">
-          <div className="w-[800px]">
+          <div className="w-[800px] width-small">
             <h2 className="font-semibold"></h2>
             {parts.map((part, index) => (
               <div key={index} className="mb-2">

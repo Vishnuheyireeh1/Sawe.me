@@ -6,3 +6,153 @@
 .nav2-orc{
     clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%);
 } */
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    nav {
+      display: none;
+    }
+    .mobile-menu {
+      display: block;
+    }
+  }
+  
+  /* Mobile Menu Animations */
+  .mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+  
+  /* General Styles */
+  header {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+
+
+
+
+
+
+  /* header  3 */
+ /* Main navbar container */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo styling */
+.logo-img {
+  width: 70%;
+  cursor: pointer;
+}
+
+/* Menu bar on the right */
+.menu-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Hamburger icon (only visible on small screens) */
+.menu-icon {
+  display: inline-block;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* Main dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 999;
+}
+
+/* Dropdown item styling */
+.dropdown-item {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.dropdown-item:hover {
+  background-color: #f4f4f4;
+}
+
+/* Sub-dropdown menu for Option 3 */
+.sub-dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 210px; /* Adjusted to appear next to the main dropdown */
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 50;
+}
+
+/* Sub-dropdown item styling */
+.sub-dropdown-item {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sub-dropdown-item:hover {
+  background-color: #f4f4f4;
+}
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+  .menu-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Show hamburger icon only on small screens */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide dropdown menu by default */
+  .dropdown-menu {
+    display: none;
+    z-index: 50;
+  }
+
+  /* Show dropdown menu if visible state is true */
+  .dropdown-menu.visible {
+    display: block;
+    z-index: 50;
+  }
+}

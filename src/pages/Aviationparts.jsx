@@ -179,209 +179,220 @@ const Aviationparts = () => {
   return (
     <div>
       {/* First Part */}
-      <div className="w-full mt-20 h-[550px]">
+      <div className="w-full mt-20 h-[550px] relative">
         <div className="relative">
-          <div className="absolute border-l-4  border-customRed h-40 mx-28 mt-40"></div>
-          <h1 className="absolute text-black text-6xl font-bold mx-36 mt-44">
+          {/* Vertical Line */}
+          <div className="absolute border-l-4 border-customRed h-40 mx-28 mt-40 hidden md:block"></div>
+
+          {/* Title */}
+          <h1 className="absolute text-black text-6xl font-bold mx-36 mt-44 hidden md:block">
             Aviation <span className="text-customRed"> Parts</span>
           </h1>
+
+          {/* Breadcrumb Navigation */}
           <h2
             onClick={handleHome}
-            className="absolute text-customRed text-xl font-bold mx-36 mt-64 cursor-pointer"
+            className="absolute text-customRed text-xl font-bold mx-36 mt-64 cursor-pointer hidden md:block"
           >
             Home
           </h2>
           <h2
             onClick={handleHome}
-            className="absolute text-black text-xl  mx-52 mt-64 cursor-pointer"
+            className="absolute text-black text-xl mx-52 mt-64 cursor-pointer hidden md:block"
           >
             &#8594;
           </h2>
-          <h2 className="absolute text-black text-xl font-bold mx-60 mt-64 cursor-pointer">
+          <h2 className="absolute text-black text-xl font-bold mx-60 mt-64 cursor-pointer hidden md:block">
             Aviation Parts
           </h2>
-          <img className="w-[1800px] h-[550px]" src={home1} alt="" />
+
+          {/* Image */}
+          <img className="aviat-head" src={home1} alt="Aviation Parts" />
         </div>
       </div>
-      {/* Second Part */}
-      <div className="w-full h-full flex gap-10">
-        {/* Left Part */}
-        <div className="w-4/12 bg-white h-full">
-          <div className="bg-gray-100 w-[360px] h-[700px] mt-28 ml-16">
-            <div className="pt-4">
-              <h1 className="absolute text-black text-2xl font-bold mx-8 mt-[-10px]">
-                Aviation Parts
-              </h1>
-              {headings.map((heading, index) => (
-                <div
-                  key={index}
-                  className={`w-72 h-[60px] mx-8 mt-8 cursor-pointer flex items-center px-4 ${
-                    currentIndex === index ? "bg-gray-900" : "bg-customRed"
-                  } hover:bg-gray-900`}
-                  onClick={() => handleImageChange(index)}
-                >
-                  <h2 className="text-xl text-white">{heading}</h2>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
-        {/* Right Part - Image Slider */}
-        <div className="w-8/12 bg-white h-full relative overflow-hidden mr-14">
-          {/* Images Container */}
+      <div className='gap-aviat2'></div>
+
+      {/* Second Part */}
+      <div className="w-full h-full flex flex-col md:flex-row gap-4 md:gap-10">
+  {/* Left Part */}
+  <div className="w-full md:w-4/12 bg-white h-auto md:h-full">
+    <div className="bg-gray-100 option-container h-auto mt-10 md:mt-28 mx-auto md:ml-16">
+      <div className="pt-4">
+        <h1 className="text-black text-xl md:text-2xl font-bold text-center md:text-left mx-4 md:mx-8 mt-[-10px]">
+          Aviation Parts
+        </h1>
+        {headings.map((heading, index) => (
           <div
-            className="flex transition-transform duration-500 ease-in-out mt-28 h-[500px]"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            key={index}
+            className={`clickable-option w-11/12 md:w-72 h-[60px] mx-auto mt-4 md:mt-8 cursor-pointer flex items-center px-4 ${
+              currentIndex === index ? "bg-gray-900" : "bg-customRed"
+            } hover:bg-gray-900`}
+            onClick={() => handleImageChange(index)}
+            style={{
+              zIndex: 10, // Ensure clickable elements are on top
+              position: "relative", // Ensure it's positioned above other content
+            }}
           >
-            {images.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`Slide ${index}`}
-                className="w-full flex-shrink-0 object-cover"
-                draggable={false}
-              />
-            ))}
+            <h2 className="text-sm md:text-xl text-white">{heading}</h2>
           </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* Right Part - Image Slider */}
+  <div className="w-full md:w-8/12 bg-white h-auto md:h-full relative overflow-hidden mr-0 md:mr-14">
+    {/* Images Container */}
+    <div
+      className="flex transition-transform duration-500 ease-in-out mt-10 md:mt-28 h-[250px] md:h-[500px]"
+      style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+    >
+      {images.map((img, index) => (
+        <img
+          key={index}
+          src={img}
+          alt={`Slide ${index}`}
+          className="w-full flex-shrink-0 object-cover"
+          draggable={false}
+        />
+      ))}
+    </div>
+  
+
+
 
           {/* Slider Buttons */}
-          <div className="absolute left-0 right-0 flex justify-center gap-4 mt-5">
+          <div className="absolute left-0 right-0 flex justify-center gap-4 mt-2 md:mt-5">
             <button
               onClick={slideLeft}
-              className="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center cursor-pointer"
+              className="w-8 md:w-10 h-8 md:h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center cursor-pointer"
             >
               &#8592;
             </button>
             <button
               onClick={slideRight}
-              className="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center cursor-pointer"
+              className="w-8 md:w-10 h-8 md:h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center cursor-pointer"
             >
               &#8594;
             </button>
           </div>
-
-          <div className="mt-40">
-            {/* <h2 className="text-3xl font-bold underline mb-8">Spare Parts</h2>
-            <h3>
-              At SAWE Solutions LLC FZ, we specialize in providing an extensive
-              range of high-quality spare parts tailored to meet the rigorous
-              demands of the aviation industry. Our inventory is designed to
-              support seamless operations by offering reliable components that
-              enhance safety, performance, and efficiency.
-            </h3> */}
-
-            <h2 className="text-3xl font-bold underline mt-8 mb-5">Aviation Parts</h2>
-            <h3>
-            At SAWE Solutions LLC FZ, we provide high-quality aviation parts designed to ensure the highest level of safety, reliability, and performance for aircraft. Our extensive range of components is ideal for commercial, private, and military aviation, offering everything from engine components to expendables. Explore our categories below to find the right parts for your needs.
+          <div className="gap-aviat"></div>
+          {/* Content Section */}
+          <div className="mt-6 md:mt-40 px-4 md:px-0">
+            <h2 className="text-xl md:text-3xl font-bold underline mb-5">
+              Aviation Parts
+            </h2>
+            <h3 className="text-sm md:text-base">
+              At SAWE Solutions LLC FZ, we provide high-quality aviation parts
+              designed to ensure the highest level of safety, reliability, and
+              performance for aircraft...
             </h3>
 
-            <h2 className="text-3xl font-bold underline mt-8 mb-5">Why Choose Us?</h2>
-            <h3>
-            <ul className="list-disc pl-6 space-y-3 text-gray-700 text-lg">
+            <h2 className="text-xl md:text-3xl font-bold underline mt-8 mb-5">
+              Why Choose Us?
+            </h2>
+            <ul className="list-disc pl-6 space-y-2 md:space-y-3 text-gray-700 text-sm md:text-lg">
               <li>
-              Quality Assurance: All of our parts are rigorously tested to meet the highest industry standards. 
+                Quality Assurance: All of our parts are rigorously tested...
               </li>
-              <li>Expertise: With years of experience in the aviation industry, our team understands the critical nature of these parts and is committed to delivering reliable solutions.  
+              <li>
+                Expertise: With years of experience in the aviation industry...
               </li>
-              <li>Fast Delivery: We understand the urgency in the aviation industry and offer quick delivery services worldwide to minimize aircraft downtime. 
+              <li>
+                Fast Delivery: We understand the urgency in the aviation
+                industry...
               </li>
-              <li>Competitive Pricing: We offer competitive pricing on all of our products, ensuring that you get the best value for your investment. 
-              </li>
+              <li>Competitive Pricing: We offer competitive pricing...</li>
             </ul>
-            
-            </h3>
 
-            <div className="mt-10 mb-40">
-              <div className="w-[800px]">
-              <h2 className='font-semibold'>Our aviation parts portfolio includes:
+            <div className="mt-6 md:mt-10">
+              <h2 className="font-semibold text-base md:text-lg">
+                Our aviation parts portfolio includes:
               </h2>
-                {parts.map((part, index) => (
-                  <div key={index} className="mb-2">
-                    {/* Main Section */}
+              {parts.map((part, index) => (
+                <div key={index} className="mb-2">
+                  <div
+                    className="bg-gray-200 w-full h-10 flex justify-between items-center cursor-pointer mt-6"
+                    onClick={() => toggleSection(index)}
+                  >
+                    <h2 className="font-semibold text-sm md:text-base text-gray-900 p-2">
+                      {part.title}
+                    </h2>
                     <div
-                      className="bg-gray-200 w-full h-10 flex justify-between items-center cursor-pointer mt-6"
-                      onClick={() => toggleSection(index)}
-                    >
-                      <h2 className="font-semibold text-gray-900 p-2">
-                        {part.title}
-                      </h2>
-
-                      {/* Down Arrow */}
-                      <div
-                        className={`text-gray-900 mr-4 transform transition-transform duration-300 ${
-                          openIndex === index ? "rotate-180" : "rotate-0"
-                        }`}
-                      >
-                        &#9660; {/* Unicode for down arrow */}
-                      </div>
-                    </div>
-
-                    {/* Collapsible Content */}
-                    <div
-                      className={`bg-gray-900 rounded-br rounded-bl overflow-hidden transition-all duration-500 ${
-                        openIndex === index
-                          ? "max-h-40 opacity-100"
-                          : "max-h-0 opacity-0"
+                      className={`text-gray-900 mr-4 transform transition-transform duration-300 ${
+                        openIndex === index ? "rotate-180" : "rotate-0"
                       }`}
                     >
-                      <p className="text-gray-200 p-3">{part.description}</p>
+                      &#9660;
                     </div>
                   </div>
-                ))}
-              </div>
+                  <div
+                    className={`bg-gray-900 rounded-br rounded-bl overflow-hidden transition-all duration-500 ${
+                      openIndex === index
+                        ? "max-h-40 opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="text-gray-200 p-3 text-xs md:text-sm">
+                      {part.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
+
       {/* third part */}
       <div className="w-full h-full flex flex-wrap justify-center gap-10 mt-20 mb-40">
-      {divData.map((div, index) => (
-        <div
-          key={div.id}
-          className="relative p-4 border rounded-lg flex flex-col mt-40"
-          style={{
-            width: "400px",
-            height: "550px",
-          }}
-        >
-          {/* Unique Circle Image */}
+        {divData.map((div, index) => (
           <div
-            className="absolute overflow-hidden hover:brightness-hover"
+            key={div.id}
+            className="relative p-4 border rounded-lg flex flex-col mt-40"
             style={{
-              width: "350px",
-              height: "350px",
-              top: "-175px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              borderRadius: "50%",
-              borderBottomLeftRadius: "0",
-              backgroundColor: "#f0f0f0",
+              width: "400px",
+              height: "550px",
             }}
           >
-            <img
-              src={div.imageSrc}
-              alt={`Image for ${div.heading}`}
-              className="w-full h-full object-cover hover:brightness-50 transition-all duration-500 hover:scale-110"
-            />
-          </div>
+            {/* Unique Circle Image */}
+            <div
+              className="absolute overflow-hidden hover:brightness-hover"
+              style={{
+                width: "350px",
+                height: "350px",
+                top: "-175px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                borderRadius: "50%",
+                borderBottomLeftRadius: "0",
+                backgroundColor: "#f0f0f0",
+              }}
+            >
+              <img
+                src={div.imageSrc}
+                alt={`Image for ${div.heading}`}
+                className="w-full h-full object-cover hover:brightness-50 transition-all duration-500 hover:scale-110"
+              />
+            </div>
 
-          {/* Div Content */}
-          <div className="mt-52 ">
-            <h2 className="text-lg font-bold">{div.heading}</h2>
-            <p className="text-sm text-gray-600 ">{div.content}</p>
-            <h3 className="text-md font-semibold">{div.subHeading}</h3>
-            <ul className="list-disc list-inside">
-              {div.points.map((point, idx) => (
-                <li key={idx} className="text-sm text-gray-500">
-                  {point}
-                </li>
-              ))}
-            </ul>
+            {/* Div Content */}
+            <div className="mt-52 ">
+              <h2 className="text-lg font-bold">{div.heading}</h2>
+              <p className="text-sm text-gray-600 ">{div.content}</p>
+              <h3 className="text-md font-semibold">{div.subHeading}</h3>
+              <ul className="list-disc list-inside">
+                {div.points.map((point, idx) => (
+                  <li key={idx} className="text-sm text-gray-500">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </div>
   );
 }
